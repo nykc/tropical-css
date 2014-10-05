@@ -1,0 +1,56 @@
+$container-width : 978px;
+$column-width : 5.5; // in percent
+$column : 12; // number of columns
+$column-gutter : (100 - ($column-width * $column)) / ($column - 1);
+
+// flexible images
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.container {
+  padding: 0 15px;
+  position: relative;
+  @include pie-clearfix;
+}
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+  position: relative;
+  max-width: $container-width;
+  @include pie-clearfix;
+}
+
+// select all elements that contains class 'col-'
+[class*="col-"] {
+  float: left;
+  display: inline;
+  min-height: 1px;
+  position: relative;
+  margin-left: 1% * $column-gutter;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+// column width
+@for $i from 1 through $column {
+  .col-#{$i} {
+    $col-width: 1% * ($column-width * $i) + ($column-gutter *($i - 1));
+    width: $col-width;
+  }
+}
+
+// media queries for mobile devices
+@media only screen and (max-width: 767px) {
+  .row {
+    max-width: 767px;
+    [class*="col-"] {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+}

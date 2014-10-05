@@ -22,7 +22,7 @@ mv ie.scss print.scss screen.scss devices/
 
 cd ~/Sites/tropical-css
 echo 'copying files to your new directory...'
-cp config.rb README.md index.html .gitignore sass-overview.md ~/Sites/$NEWDIR
+cp config.rb README.md index.html demo.html .gitignore sass-overview.md ~/Sites/$NEWDIR
 
 cd ~/Sites/tropical-css/assets/sass/
 cp main.scss ~/Sites/$NEWDIR/assets/sass
